@@ -15,17 +15,20 @@ class LoginActivity : AppCompatActivity() {
 
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
+        
+// Configura o botão de login para responder ao clique
         binding.buttonEntrar.setOnClickListener {
             val username = binding.editUsername.text.toString().trim()
             val password = binding.editPassword.text.toString().trim()
-
-            if (username.equals("abc") && password.equals("123")) {
+// Verifica se o nome de usuário e a senha correspondem
+            if (username.equals("arthur") && password.equals("4")) {
+// Se as credenciais estiverem corretas, inicia a MainActivity                
                 val i = Intent(this, MainActivity::class.java)
                 i.putExtra("username", username)
                 startActivity(i)
                 finish()
             } else {
+// Caso contrário, exibe uma mensagem de erro
                 Toast.makeText(applicationContext, "Errou", Toast.LENGTH_LONG).show()
             }
         }
